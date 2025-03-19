@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/products/:productId",
+      "destination": "/products/:productId"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}

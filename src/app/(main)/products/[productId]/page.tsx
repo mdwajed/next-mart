@@ -1,11 +1,13 @@
 import { getProductById } from "@/actions/product";
 import ProductDetails from "@/components/modules/home/ProductDetails";
-interface ProductPageProps {
-  params: { productId: string };
-}
-const ProductDetailsPage = async ({ params }: ProductPageProps) => {
-  const { productId } = params;
-  console.log("productId", productId);
+export const dynamic = "force-dynamic";
+
+const ProductDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}) => {
+  const { productId } = await params;
   const product = await getProductById(productId);
 
   if (!product) {
